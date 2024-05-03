@@ -8,28 +8,55 @@
 import SwiftUI
 
 struct RoleView: View {
-    let agents: [AgentRole] = [
-        AgentRole(name: "Dev", model: .chat(.llama), address: "localhost", sprites: DuckyImages.idleBounce(), systemPrompt: "You are a Developer", temperature: 0.6),
-        AgentRole(name: "Dokumenter", model: .chat(.llama), address: "localhost", sprites: GirlImages.idle(), systemPrompt: "You will explain the code you get", temperature: 0.6)
-    ]
+    @ObservedObject var viewModel = RoleViewModel()
     
     var body: some View {
-        VStack {
-            ForEach(0 ..< agents.count) { index in
-                let agent = agents[index]
-                HStack {
-                    AnimatedSprite(sprites: agent.sprites)
-                        .frame(width: 64, height: 64)
-                    
-                    Text(agent.name)
-                        .font(.system(size: 24, weight: .bold, design: .serif))
-                }
+        VStack(spacing: 20) {
+            ForEach(0 ..< viewModel.agents.count) { index in
+                createAgent(with: index)
             }
-            .padding(.horizontal, 32)
+            
+            Button {
+                print("did tap role")
+            } label: {
+                addRoleRow
+            }
+
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding(.horizontal, 32)
     }
+    
+    @ViewBuilder private func createAgent(with index: Int) -> some View {
+        let agent = viewModel.agents[index]
+        HStack {
+            AnimatedSprite(sprites: agent.sprites)
+                .frame(width: 64, height: 64)
+            
+            Text(agent.name)
+                .font(.system(size: 20, weight: .bold, design: .serif))
+            
+            Spacer()
+        }
+    }
+    
+    private var addRoleRow: some View {
+        HStack(spacing: 20) {
+            Image(systemName: "plus.circle.fill")
+                .resizable()
+                .frame(width: 30, height: 30)
+                .colorMultiply(.black)
+            
+            Text("Add a Role")
+                .font(.system(size: 20, weight: .bold, design: .serif))
+            
+            Spacer()
+        }
+        .padding(.leading, 20)
+    }
+    
 }
+
 
 #Preview {
     RoleView()

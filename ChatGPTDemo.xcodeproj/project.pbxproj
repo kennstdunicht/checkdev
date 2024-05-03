@@ -15,6 +15,7 @@
 		0701C0EB2BE51A3F00FC74C7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0701C0EA2BE51A3F00FC74C7 /* SettingsView.swift */; };
 		0701C0F02BE51BAE00FC74C7 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0701C0EF2BE51BAE00FC74C7 /* OpenAISwift */; };
 		0701C0F22BE5207D00FC74C7 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0701C0F12BE5207D00FC74C7 /* View+Extensions.swift */; };
+		0701C0F42BE52BF300FC74C7 /* RoleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0701C0F32BE52BF300FC74C7 /* RoleViewModel.swift */; };
 		74DB3AC72AC0538E007C6319 /* ChatGPTDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DB3AC62AC0538E007C6319 /* ChatGPTDemoApp.swift */; };
 		74DB3ACB2AC05391007C6319 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74DB3ACA2AC05391007C6319 /* Assets.xcassets */; };
 		74DB3ACE2AC05391007C6319 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74DB3ACD2AC05391007C6319 /* Preview Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		0701C0E82BE51A2000FC74C7 /* ScenarioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioView.swift; sourceTree = "<group>"; };
 		0701C0EA2BE51A3F00FC74C7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0701C0F12BE5207D00FC74C7 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		0701C0F32BE52BF300FC74C7 /* RoleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleViewModel.swift; sourceTree = "<group>"; };
 		74DB3AC32AC0538E007C6319 /* ChatGPTDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatGPTDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74DB3AC62AC0538E007C6319 /* ChatGPTDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTDemoApp.swift; sourceTree = "<group>"; };
 		74DB3ACA2AC05391007C6319 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				0701C0E62BE51A0600FC74C7 /* RoleView.swift */,
+				0701C0F32BE52BF300FC74C7 /* RoleViewModel.swift */,
 			);
 			path = RoleView;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				C7E2818E2BE51726001B528A /* AgentsManager.swift in Sources */,
 				74DB3AC72AC0538E007C6319 /* ChatGPTDemoApp.swift in Sources */,
 				97A24BEA2BE5215400E716B8 /* DuckyImages.swift in Sources */,
+				0701C0F42BE52BF300FC74C7 /* RoleViewModel.swift in Sources */,
 				ED6668FA2BE51C3300DBA9E5 /* Action.swift in Sources */,
 				ED6668FB2BE51C3300DBA9E5 /* Scenario.swift in Sources */,
 				97A24BED2BE5223C00E716B8 /* AnimatedSprite.swift in Sources */,
