@@ -67,22 +67,16 @@ final class ChatViewModel: ObservableObject {
         let result = try? await openAI?.sendChat(with: agentMessage, model: action.agent.model, temperature: action.agent.temperature)
         
         if let result {
-            self.assistantMessage(result: result)
+            self.assistantMessage(botName: action.agent.name, result: result)
         }
         
         return result?.message?.content
     }
     
-    private func assistantMessage(result: OllamaMessageResult) {
-        var assistantMessage: ChatMessage = .init(role: .assistant, content: result.message?.content ?? "")
+    private func assistantMessage(botName: String, result: OllamaMessageResult) {
+        let assistantMessage: ChatMessage = .init(name: botName, role: .assistant, content: result.message?.content ?? "")
         DispatchQueue.main.async { [weak self] in
             self?.messages.append(assistantMessage)
         }
-    }
-    
-    private func receiveBotMessage(_ message: String) {
-        //       let botMessage = ChatMessage(message: message, isUser: false)
-        let botMessage = ChatMessage(role: .assistant, content: message)
-        messages.append(botMessage) // Append bot message to chat history
     }
 }

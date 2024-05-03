@@ -21,6 +21,10 @@ public enum ChatRole: String, Codable {
 public struct ChatMessage: Codable, Identifiable {
     // uuid to conform to Identifiable protocol
     public var id = UUID()
+    
+    /// name of the instance who posted this message
+    public var name: String?
+    
     /// The role of the sender of the message.
     public let role: ChatRole?
     /// The content of the message.
@@ -34,7 +38,8 @@ public struct ChatMessage: Codable, Identifiable {
     /// - Parameters:
     ///   - role: The role of the sender of the message.
     ///   - content: The content of the message.
-    public init(role: ChatRole, content: String) {
+    public init(name: String? = nil, role: ChatRole, content: String) {
+        self.name = name
         self.role = role
         self.content = content
     }

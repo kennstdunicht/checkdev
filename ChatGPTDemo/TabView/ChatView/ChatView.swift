@@ -59,17 +59,25 @@ struct MessageRow: View {
         HStack {
             if message.isUser {
                 Spacer()
-                Text(message.content ?? "")
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(Color.white)
-                    .cornerRadius(10)
+                VStack(alignment: .trailing) {
+                    Text("User:")
+                    Text(message.content ?? "")
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(Color.white)
+                        .cornerRadius(10)
+                }
+      
             } else {
-                Text(message.content ?? "")
-                    .padding()
-                    .background(Color.gray)
-                    .foregroundColor(Color.white)
-                    .cornerRadius(10)
+                VStack(alignment: .leading) {
+                    Text(message.name ?? "Bot")
+                    Text(message.content ?? "")
+                        .padding()
+                        .background(Color.gray)
+                        .foregroundColor(Color.white)
+                        .cornerRadius(10)
+                }
+       
                 Spacer()
             }
         }
