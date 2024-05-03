@@ -11,20 +11,25 @@ struct RoleView: View {
     @ObservedObject var viewModel = RoleViewModel()
     
     var body: some View {
-        VStack(spacing: 20) {
-            ForEach(0 ..< viewModel.agents.count) { index in
-                createAgent(with: index)
+        ZStack {
+            VStack(spacing: 20) {
+                ForEach(0 ..< viewModel.agents.count) { index in
+                    createAgent(with: index)
+                }
+                Button {
+                    viewModel.isShowingBottomSheet = true
+                } label: {
+                    addRoleRow
+                }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.horizontal, 32)
             
-            Button {
-                print("did tap role")
-            } label: {
-                addRoleRow
+            BottomSheetView(isShowing: $viewModel.isShowingBottomSheet) { role in
+                viewModel.addRole(role: role)
             }
-
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding(.horizontal, 32)
+       
     }
     
     @ViewBuilder private func createAgent(with index: Int) -> some View {
