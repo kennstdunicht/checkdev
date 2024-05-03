@@ -25,18 +25,17 @@ struct LoadingSprite: View {
 
     private let timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
 
-    
     var body: some View {
-        Group {
-            GeometryReader { proxy in
-                let width = proxy.size.width
-                Image(uiImage: sprites[counter % sprites.count])
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: height)
-                    .offset(x: width * percentage)
-                    .onReceive(timer) { _ in
-                        if isLoading {
+        if isLoading {
+            Group {
+                GeometryReader { proxy in
+                    let width = proxy.size.width
+                    Image(uiImage: sprites[counter % sprites.count])
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: height)
+                        .offset(x: width * percentage)
+                        .onReceive(timer) { _ in
                             counter += 1
                             if percentage >= 1.1 {
                                 percentage = 0
@@ -45,10 +44,10 @@ struct LoadingSprite: View {
                                 percentage += 0.05
                             }
                         }
-                    }
+                }
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 

@@ -15,6 +15,13 @@ struct ChatView: View {
     
     var body: some View {
         VStack {
+            LoadingSprite(
+                counter: $viewModel.counter,
+                percentage: $viewModel.percentage,
+                isLoading: $viewModel.isLoading,
+                height: 32,
+                sprites: viewModel.sprites
+            )
             MessagesListView(messages: viewModel.messages) // Display chat messages
             HStack {
                 TextField("Enter your message", text: $newMessage) // Input field

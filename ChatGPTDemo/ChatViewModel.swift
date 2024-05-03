@@ -5,11 +5,17 @@
 // Created by Sayed Obaid on 24/09/2023.
 //
 
-import Foundation
+import UIKit
 import OpenAISwift
 
 final class ChatViewModel: ObservableObject {
     @Published var messages: [ChatMessage] = [] // Published property for chat messages
+    
+    @Published var counter = 0
+    @Published var percentage = 0.0
+    @Published var isLoading = false
+    
+    @Published var sprites: [UIImage] = []
     
     private var openAI: OpenAISwift?
     
@@ -25,7 +31,7 @@ final class ChatViewModel: ObservableObject {
     func sendUserMessage(_ message: String) {
         AgentsManager.shared.agents = []
         AgentsManager.shared.agents.append(AgentRole(name: "Dev", model: .chat(.llama), address: "localhost", sprites: DuckyImages.idleBounce(), systemPrompt: "You are a Swift Developer. You will only code. You will not make any explanations.", temperature: 0.6))
-        AgentsManager.shared.agents.append(AgentRole(name: "Documenter", model: .chat(.llama), address: "localhost", sprites: DuckyImages.walk(), systemPrompt: "You will explain the code you get. Explain it so that a child can understand.", temperature: 0.6))
+        AgentsManager.shared.agents.append(AgentRole(name: "Documenter", model: .chat(.llama), address: "localhost", sprites: GirlImages.idle(), systemPrompt: "You will explain the code you get. Explain it so that a child can understand.", temperature: 0.6))
         
         messages.append(ChatMessage(role: .user, content: message)) // Append user message to chat history
         let scenario = Scenario(id: 0,
@@ -47,12 +53,31 @@ final class ChatViewModel: ObservableObject {
             var lastOutput = scenario.text
             for phase in scenario.phase {
                 for action in phase.action {
+                    DispatchQueue.main.async { [weak self] in
+                        self?.showLoadingSpinner(for: action.agent)
+                    }
+                    
                     action.message = lastOutput
                     lastOutput = await processAction(action)
 
                 }
             }
+            DispatchQueue.main.async { [weak self] in
+                self?.hideLoadingSpinner()
+            }
         }
+    }
+    
+    private func showLoadingSpinner(for agent: AgentRole) {
+        counter = 0
+        sprites = agent.sprites
+        isLoading = true
+    }
+    
+    private func hideLoadingSpinner() {
+        isLoading = false
+        counter = 0
+        percentage = 0.0
     }
     
     @MainActor
