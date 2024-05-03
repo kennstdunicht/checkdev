@@ -12,4 +12,6 @@ final class RoleViewModel: ObservableObject {
         AgentRole(name: "Dev", model: .chat(.llama), address: "localhost", sprites: DuckyImages.idleBounce(), systemPrompt: "You are a Developer", temperature: 0.6),
         AgentRole(name: "Dokumenter", model: .chat(.llama), address: "localhost", sprites: GirlImages.idle(), systemPrompt: "You will explain the code you get", temperature: 0.6)
     ]
+    
+    @Published var isShowingBottomSheet: Bool = false
 }
