@@ -30,6 +30,15 @@ enum DuckyImages {
         ].compactMap {$0}
     }
     
+    static func idleBounce() -> [UIImage] {
+        return [
+            idle_bounce_01,
+            idle_bounce_02,
+            idle_bounce_03,
+            idle_bounce_04
+        ].compactMap {$0}
+    }
+    
     static func walk() -> [UIImage] {
         return [
             walk_01,
