@@ -26,8 +26,8 @@ final class ChatViewModel: ObservableObject {
     
     func sendUserMessage(_ message: String) {
         
-        AgentsManager.shared.agents.append(AgentRole(name: "Dev", model: "llama3", address: "localhost", icon: "", systemPrompt: "You are a Developer", temperature: 0.6))
-        AgentsManager.shared.agents.append(AgentRole(name: "Dokumenter", model: "llama3", address: "localhost", icon: "", systemPrompt: "You will explain the code you get", temperature: 0.6))
+        AgentsManager.shared.agents.append(AgentRole(name: "Dev", model: "llama3", address: "localhost", sprites: DuckyImages.idleBounce(), systemPrompt: "You are a Developer", temperature: 0.6))
+        AgentsManager.shared.agents.append(AgentRole(name: "Dokumenter", model: "llama3", address: "localhost", sprites: DuckyImages.walk(), systemPrompt: "You will explain the code you get", temperature: 0.6))
         
         scenario = Scenario(id: 0,
                             text: message,
