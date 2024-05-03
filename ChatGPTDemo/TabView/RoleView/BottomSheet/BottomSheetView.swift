@@ -13,6 +13,7 @@ struct BottomSheetView: View {
     @Binding var isShowing: Bool
     @State var roleName: String = ""
     @State private var temperature: Double = 0
+    var didTapButton: (AgentRole) -> Void
     
     var body: some View {
         
@@ -29,8 +30,6 @@ struct BottomSheetView: View {
                     }
                 
                 VStack {
-                    
-                    
                     Form {
                         TextField("Role Name", text: $roleName)
                         VStack(alignment: .leading, spacing: 20) {
@@ -43,7 +42,9 @@ struct BottomSheetView: View {
                             }
                            
                             Button {
-                                
+                                didTapButton(.init(name: roleName, model: .chat(.llama), address: "localhost", sprites: DuckyImages.idleBounce(), systemPrompt: "You are a developer", temperature: temperature))
+//                                AgentRole(name: "Dev", model: .chat(.llama), address: "localhost", sprites: DuckyImages.idleBounce(), systemPrompt: "You are a Developer", temperature: 0.6)
+                                isShowing = false
                             } label: {
                                 HStack {
                                     Spacer()
@@ -91,6 +92,6 @@ extension View {
 }
 
 
-#Preview {
-    BottomSheetView(isShowing: .constant(true))
-}
+//#Preview {
+//    BottomSheetView(isShowing: .constant(true))
+//}

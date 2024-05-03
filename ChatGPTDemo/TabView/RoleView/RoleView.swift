@@ -24,7 +24,10 @@ struct RoleView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(.horizontal, 32)
-            BottomSheetView(isShowing: $viewModel.isShowingBottomSheet)
+            
+            BottomSheetView(isShowing: $viewModel.isShowingBottomSheet) { role in
+                viewModel.addRole(role: role)
+            }
         }
        
     }
