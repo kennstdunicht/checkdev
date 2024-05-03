@@ -21,24 +21,9 @@ final class ChatViewModel: ObservableObject {
     }
 
     func sendUserMessage(_ message: String) {
-//        let userMessage = ChatMessage(message: , isUser: true)
         let userMessage = ChatMessage(role: .user, content: message)
         messages.append(userMessage) // Append user message to chat history
-
-//        openAI?.sendCompletion(with: message, maxTokens: 500) { [weak self] result in
-//            switch result {
-//            case .success(let model):
-//                if let response = model.choices?.first?.text {
-//                    self?.receiveBotMessage(response) // Handle bot's response
-//                }
-//            case .failure(_):
-//                // Handle any errors during message sending
-//                break
-//            }
-//        }
-        // Result<OpenAI<MessageResult>, OpenAIError>
         openAI?.sendChat(with: messages, completionHandler: { [weak self] result in
-//            print("result: \(result)")
             self?.assistantMessage(result: result)
             
         })

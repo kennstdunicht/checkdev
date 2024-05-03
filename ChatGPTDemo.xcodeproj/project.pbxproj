@@ -13,6 +13,7 @@
 		74DB3ACE2AC05391007C6319 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74DB3ACD2AC05391007C6319 /* Preview Assets.xcassets */; };
 		74DB3AD82AC06C2E007C6319 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DB3AD72AC06C2E007C6319 /* ChatViewModel.swift */; };
 		C7E281872BE4FDD5001B528A /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = C7E281862BE4FDD5001B528A /* OpenAISwift */; };
+		C7E2818C2BE5166A001B528A /* AgentRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E2818B2BE5166A001B528A /* AgentRole.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		74DB3ACD2AC05391007C6319 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		74DB3AD72AC06C2E007C6319 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		C7E281842BE4FDBE001B528A /* OpenAISwift-main */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = "OpenAISwift-main"; sourceTree = SOURCE_ROOT; };
+		C7E2818B2BE5166A001B528A /* AgentRole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentRole.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		74DB3AC52AC0538E007C6319 /* ChatGPTDemo */ = {
 			isa = PBXGroup;
 			children = (
+				C7E281882BE5163C001B528A /* Model */,
 				74DB3AC62AC0538E007C6319 /* ChatGPTDemoApp.swift */,
 				74DB3AC82AC0538E007C6319 /* ContentView.swift */,
 				74DB3AD72AC06C2E007C6319 /* ChatViewModel.swift */,
@@ -80,6 +83,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7E281882BE5163C001B528A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C7E2818B2BE5166A001B528A /* AgentRole.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +171,7 @@
 				74DB3AC92AC0538E007C6319 /* ContentView.swift in Sources */,
 				74DB3AD82AC06C2E007C6319 /* ChatViewModel.swift in Sources */,
 				74DB3AC72AC0538E007C6319 /* ChatGPTDemoApp.swift in Sources */,
+				C7E2818C2BE5166A001B528A /* AgentRole.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
