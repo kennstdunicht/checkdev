@@ -30,16 +30,22 @@ final class ChatViewModel: ObservableObject {
         AgentsManager.shared.agents.append(AgentRole(name: "Dokumenter", model: "llama3", address: "localhost", icon: "", systemPrompt: "You will explain the code you get", temperature: 0.6))
         
         scenario = Scenario(id: 0,
-                            text: nil,
+                            text: message,
                             phase: [Phase(id: 0,
                                           action: [Action(id: 0,
                                                           agent: AgentsManager.shared.agents[0],
-                                                          message: nil),
+                                                          message: message),
                                                    Action(id: 0,
                                                           agent: AgentsManager.shared.agents[1],
                                                           message: nil)],
                                           output: nil)])
         
+
+    }
+    
+    private func processAction(_ action: Action) {
+        
+        guard let message = action.message else { return }
         let userMessage = ChatMessage(role: .user, content: message)
         messages.append(userMessage) // Append user message to chat history
         openAI?.sendChat(with: messages, completionHandler: { [weak self] result in
