@@ -63,7 +63,7 @@ final class ChatViewModel: ObservableObject {
         case .failure(let error):
             print("Some error has happened")
         }
-        //        let message: ChatMessage = .init(role: .assistant, content: )
+        
         DispatchQueue.main.async { [weak self] in
             self?.messages.append(assistantMessage)
         }

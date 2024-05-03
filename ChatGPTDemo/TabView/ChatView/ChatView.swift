@@ -1,14 +1,14 @@
 //
-//  ContentView.swift
+//  ChatView.swift
 //  ChatGPTDemo
 //
-//  Created by Sayed Obaid on 24/09/2023.
+//  Created by Nasim Uddin Ahmed on 03.05.24.
 //
 
 import SwiftUI
 import OpenAISwift
 
-struct ContentView: View {
+struct ChatView: View {
     @ObservedObject var viewModel: ChatViewModel
     
     @State private var newMessage = ""
@@ -75,9 +75,3 @@ struct MessageRow: View {
         }
     }
 }
-
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}

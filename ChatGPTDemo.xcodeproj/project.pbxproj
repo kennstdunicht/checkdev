@@ -7,14 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0701C0DD2BE5124800FC74C7 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0701C0DC2BE5124800FC74C7 /* MainTabView.swift */; };
+		0701C0DF2BE512D900FC74C7 /* TabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0701C0DE2BE512D900FC74C7 /* TabViewModel.swift */; };
+		0701C0E52BE519DB00FC74C7 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0701C0E42BE519DB00FC74C7 /* ChatView.swift */; };
+		0701C0E72BE51A0600FC74C7 /* RoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0701C0E62BE51A0600FC74C7 /* RoleView.swift */; };
+		0701C0E92BE51A2000FC74C7 /* ScenarioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0701C0E82BE51A2000FC74C7 /* ScenarioView.swift */; };
+		0701C0EB2BE51A3F00FC74C7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0701C0EA2BE51A3F00FC74C7 /* SettingsView.swift */; };
+		0701C0F02BE51BAE00FC74C7 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0701C0EF2BE51BAE00FC74C7 /* OpenAISwift */; };
+		0701C0F22BE5207D00FC74C7 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0701C0F12BE5207D00FC74C7 /* View+Extensions.swift */; };
 		74DB3AC72AC0538E007C6319 /* ChatGPTDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DB3AC62AC0538E007C6319 /* ChatGPTDemoApp.swift */; };
-		74DB3AC92AC0538E007C6319 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DB3AC82AC0538E007C6319 /* ContentView.swift */; };
 		74DB3ACB2AC05391007C6319 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74DB3ACA2AC05391007C6319 /* Assets.xcassets */; };
 		74DB3ACE2AC05391007C6319 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74DB3ACD2AC05391007C6319 /* Preview Assets.xcassets */; };
 		74DB3AD82AC06C2E007C6319 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DB3AD72AC06C2E007C6319 /* ChatViewModel.swift */; };
 		97A24BEA2BE5215400E716B8 /* DuckyImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A24BE92BE5215400E716B8 /* DuckyImages.swift */; };
 		97A24BED2BE5223C00E716B8 /* AnimatedSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A24BEC2BE5223C00E716B8 /* AnimatedSprite.swift */; };
 		C7E281872BE4FDD5001B528A /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = C7E281862BE4FDD5001B528A /* OpenAISwift */; };
+
 		C7E2818C2BE5166A001B528A /* AgentRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E2818B2BE5166A001B528A /* AgentRole.swift */; };
 		C7E2818E2BE51726001B528A /* AgentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E2818D2BE51726001B528A /* AgentsManager.swift */; };
 		ED6668F92BE51C3300DBA9E5 /* Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6668F62BE51C3300DBA9E5 /* Phase.swift */; };
@@ -23,9 +31,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0701C0DC2BE5124800FC74C7 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		0701C0DE2BE512D900FC74C7 /* TabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewModel.swift; sourceTree = "<group>"; };
+		0701C0E42BE519DB00FC74C7 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		0701C0E62BE51A0600FC74C7 /* RoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleView.swift; sourceTree = "<group>"; };
+		0701C0E82BE51A2000FC74C7 /* ScenarioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioView.swift; sourceTree = "<group>"; };
+		0701C0EA2BE51A3F00FC74C7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0701C0F12BE5207D00FC74C7 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		74DB3AC32AC0538E007C6319 /* ChatGPTDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatGPTDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74DB3AC62AC0538E007C6319 /* ChatGPTDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTDemoApp.swift; sourceTree = "<group>"; };
-		74DB3AC82AC0538E007C6319 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		74DB3ACA2AC05391007C6319 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74DB3ACD2AC05391007C6319 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		74DB3AD72AC06C2E007C6319 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
@@ -44,13 +58,58 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7E281872BE4FDD5001B528A /* OpenAISwift in Frameworks */,
+				0701C0F02BE51BAE00FC74C7 /* OpenAISwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0701C0DB2BE511E500FC74C7 /* TabView */ = {
+			isa = PBXGroup;
+			children = (
+				0701C0E32BE519A300FC74C7 /* SettingsView */,
+				0701C0E22BE5199C00FC74C7 /* ScenarioView */,
+				0701C0E12BE5199500FC74C7 /* RoleView */,
+				0701C0E02BE5198100FC74C7 /* ChatView */,
+				0701C0DC2BE5124800FC74C7 /* MainTabView.swift */,
+				0701C0DE2BE512D900FC74C7 /* TabViewModel.swift */,
+			);
+			path = TabView;
+			sourceTree = "<group>";
+		};
+		0701C0E02BE5198100FC74C7 /* ChatView */ = {
+			isa = PBXGroup;
+			children = (
+				0701C0E42BE519DB00FC74C7 /* ChatView.swift */,
+			);
+			path = ChatView;
+			sourceTree = "<group>";
+		};
+		0701C0E12BE5199500FC74C7 /* RoleView */ = {
+			isa = PBXGroup;
+			children = (
+				0701C0E62BE51A0600FC74C7 /* RoleView.swift */,
+			);
+			path = RoleView;
+			sourceTree = "<group>";
+		};
+		0701C0E22BE5199C00FC74C7 /* ScenarioView */ = {
+			isa = PBXGroup;
+			children = (
+				0701C0E82BE51A2000FC74C7 /* ScenarioView.swift */,
+			);
+			path = ScenarioView;
+			sourceTree = "<group>";
+		};
+		0701C0E32BE519A300FC74C7 /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				0701C0EA2BE51A3F00FC74C7 /* SettingsView.swift */,
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
 		74DB3ABA2AC0538E007C6319 = {
 			isa = PBXGroup;
 			children = (
@@ -75,8 +134,9 @@
 				97A24BEB2BE5223500E716B8 /* UI */,
 				97A24BE82BE5214300E716B8 /* Resources */,
 				C7E281882BE5163C001B528A /* Model */,
+				0701C0DB2BE511E500FC74C7 /* TabView */,
 				74DB3AC62AC0538E007C6319 /* ChatGPTDemoApp.swift */,
-				74DB3AC82AC0538E007C6319 /* ContentView.swift */,
+				0701C0F12BE5207D00FC74C7 /* View+Extensions.swift */,
 				74DB3AD72AC06C2E007C6319 /* ChatViewModel.swift */,
 				74DB3ACA2AC05391007C6319 /* Assets.xcassets */,
 				74DB3ACC2AC05391007C6319 /* Preview Content */,
@@ -144,7 +204,7 @@
 			);
 			name = ChatGPTDemo;
 			packageProductDependencies = (
-				C7E281862BE4FDD5001B528A /* OpenAISwift */,
+				0701C0EF2BE51BAE00FC74C7 /* OpenAISwift */,
 			);
 			productName = ChatGPTDemo;
 			productReference = 74DB3AC32AC0538E007C6319 /* ChatGPTDemo.app */;
@@ -158,7 +218,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					74DB3AC22AC0538E007C6319 = {
 						CreatedOnToolsVersion = 14.2;
@@ -175,6 +235,7 @@
 			);
 			mainGroup = 74DB3ABA2AC0538E007C6319;
 			packageReferences = (
+				0701C0EC2BE51B8700FC74C7 /* XCRemoteSwiftPackageReference "OpenAI" */,
 			);
 			productRefGroup = 74DB3AC42AC0538E007C6319 /* Products */;
 			projectDirPath = "";
@@ -202,7 +263,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74DB3AC92AC0538E007C6319 /* ContentView.swift in Sources */,
 				74DB3AD82AC06C2E007C6319 /* ChatViewModel.swift in Sources */,
 				C7E2818E2BE51726001B528A /* AgentsManager.swift in Sources */,
 				74DB3AC72AC0538E007C6319 /* ChatGPTDemoApp.swift in Sources */,
@@ -212,6 +272,14 @@
 				97A24BED2BE5223C00E716B8 /* AnimatedSprite.swift in Sources */,
 				C7E2818C2BE5166A001B528A /* AgentRole.swift in Sources */,
 				ED6668F92BE51C3300DBA9E5 /* Phase.swift in Sources */,
+				0701C0E72BE51A0600FC74C7 /* RoleView.swift in Sources */,
+				0701C0EB2BE51A3F00FC74C7 /* SettingsView.swift in Sources */,
+				0701C0DD2BE5124800FC74C7 /* MainTabView.swift in Sources */,
+				0701C0E92BE51A2000FC74C7 /* ScenarioView.swift in Sources */,
+				74DB3AC72AC0538E007C6319 /* ChatGPTDemoApp.swift in Sources */,
+				0701C0E52BE519DB00FC74C7 /* ChatView.swift in Sources */,
+				0701C0F22BE5207D00FC74C7 /* View+Extensions.swift in Sources */,
+				0701C0DF2BE512D900FC74C7 /* TabViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +322,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -314,6 +383,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -419,8 +489,19 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		0701C0EC2BE51B8700FC74C7 /* XCRemoteSwiftPackageReference "OpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MacPaw/OpenAI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
-		C7E281862BE4FDD5001B528A /* OpenAISwift */ = {
+		0701C0EF2BE51BAE00FC74C7 /* OpenAISwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = OpenAISwift;
 		};
