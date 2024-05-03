@@ -154,7 +154,7 @@ extension OpenAISwift {
                          presencePenalty: Double? = 0,
                          frequencyPenalty: Double? = 0,
                          logitBias: [Int: Double]? = nil,
-                         completionHandler: @escaping (Result<OpenAI<MessageResult>, OpenAIError>) -> Void) {
+                         completionHandler: @escaping (Result<OllamaMessageResult, OpenAIError>) -> Void) {
         let endpoint = OpenAIEndpointProvider.API.chat
         let body = ChatConversation(user: user,
                                     messages: messages,
@@ -186,7 +186,7 @@ extension OpenAISwift {
                 }
                 
                 do {
-                    let res = try JSONDecoder().decode(OpenAI<MessageResult>.self, from: success)
+                    let res = try JSONDecoder().decode(OllamaMessageResult.self, from: success)
                     completionHandler(.success(res))
                 } catch {
                     completionHandler(.failure(.decodingError(error: error)))
@@ -395,7 +395,7 @@ extension OpenAISwift {
                          maxTokens: Int? = nil,
                          presencePenalty: Double? = 0,
                          frequencyPenalty: Double? = 0,
-                         logitBias: [Int: Double]? = nil) async throws -> OpenAI<MessageResult> {
+                         logitBias: [Int: Double]? = nil) async throws -> OllamaMessageResult {
         return try await withCheckedThrowingContinuation { continuation in
             sendChat(with: messages,
                      model: model,

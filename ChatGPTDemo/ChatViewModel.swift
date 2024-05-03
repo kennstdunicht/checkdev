@@ -37,9 +37,23 @@ final class ChatViewModel: ObservableObject {
 //            }
 //        }
         // Result<OpenAI<MessageResult>, OpenAIError>
-        openAI?.sendChat(with: messages, completionHandler: { result in
-            print("result: \(result)")
+        openAI?.sendChat(with: messages, completionHandler: { [weak self] result in
+//            print("result: \(result)")
+            self?.assistantMessage(result: result)
+            
         })
+    }
+    
+    private func assistantMessage(result: Result<OllamaMessageResult, OpenAIError>) {
+        var assistantMessage: ChatMessage = .init(role: .assistant, content: "")
+        switch result {
+        case .success(let result):
+            assistantMessage = ChatMessage(role: .assistant, content: result.message?.content ?? "")
+        case .failure(let error):
+            print("Some error has happened")
+        }
+//        let message: ChatMessage = .init(role: .assistant, content: )
+        messages.append(assistantMessage)
     }
 
     private func receiveBotMessage(_ message: String) {

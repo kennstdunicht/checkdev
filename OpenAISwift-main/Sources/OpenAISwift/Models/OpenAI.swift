@@ -23,6 +23,17 @@ public struct MessageResult: Payload {
     public let message: ChatMessage
 }
 
+public struct OllamaMessageResult: Codable {
+    public var model: String?
+    public var created_at: String?
+    public var message: OlMessage?
+}
+
+public struct OlMessage: Codable {
+    public var role: String?
+    public var content: String?
+}
+
 public struct StreamMessageResult: Payload {
     public let delta: ChatMessage
 }
