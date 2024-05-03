@@ -23,8 +23,9 @@ final class ChatViewModel: ObservableObject {
     }
     
     func sendUserMessage(_ message: String) {
-        AgentsManager.shared.agents.append(AgentRole(name: "Dev", model: .chat(.llama), address: "localhost", sprites: DuckyImages.idleBounce(), systemPrompt: "You are a Developer", temperature: 0.6))
-        AgentsManager.shared.agents.append(AgentRole(name: "Dokumenter", model: .chat(.llama), address: "localhost", sprites: DuckyImages.walk(), systemPrompt: "You will explain the code you get", temperature: 0.6))
+        AgentsManager.shared.agents = []
+        AgentsManager.shared.agents.append(AgentRole(name: "Dev", model: .chat(.llama), address: "localhost", sprites: DuckyImages.idleBounce(), systemPrompt: "You are a Swit Developer. You will only code. You will not make any explanations.", temperature: 0.6))
+        AgentsManager.shared.agents.append(AgentRole(name: "Documenter", model: .chat(.llama), address: "localhost", sprites: DuckyImages.walk(), systemPrompt: "You will explain the code you get. Explain it so that a child can understand.", temperature: 0.6))
         
         messages.append(ChatMessage(role: .user, content: message)) // Append user message to chat history
         let scenario = Scenario(id: 0,
