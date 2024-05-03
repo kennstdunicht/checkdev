@@ -30,17 +30,17 @@ public struct OpenAIEndpointProvider {
         case .openAI:
             switch api {
                 case .completions:
-                    return "/v1/completions"
+                    return "/completions"
                 case .edits:
-                    return "/v1/edits"
+                    return "/edits"
                 case .chat:
-                    return "/v1/chat/completions"
+                    return "/api/chat"
                 case .images:
-                    return "/v1/images/generations"
+                    return "/images/generations"
                 case .embeddings:
-                    return "/v1/embeddings"
+                    return "/embeddings"
                 case .moderations:
-                    return "/v1/moderations"
+                    return "/moderations"
             }
         case let .proxy(path: pathClosure, method: _):
             return pathClosure(api)

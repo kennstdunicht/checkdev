@@ -31,7 +31,7 @@ public class OpenAISwift {
         let authorizeRequest: (inout URLRequest) -> Void
         
         public static func makeDefaultOpenAI(apiKey: String) -> Self {
-            .init(baseURL: "https://api.openai.com",
+            .init(baseURL: "http://localhost:11434/",
                   endpointPrivider: OpenAIEndpointProvider(source: .openAI),
                   session: .shared,
                   authorizeRequest: { request in
@@ -57,9 +57,15 @@ extension OpenAISwift {
         let body = Command(prompt: prompt, model: model.modelName, maxTokens: maxTokens, temperature: temperature)
         let request = prepareRequest(endpoint, body: body)
         
+        print("Request: ")
+        print("\(request)")
+        
         makeRequest(request: request) { result in
             switch result {
             case .success(let success):
+                print("success")
+                
+
                 do {
                     let res = try JSONDecoder().decode(OpenAI<TextResult>.self, from: success)
                     completionHandler(.success(res))
@@ -138,7 +144,7 @@ extension OpenAISwift {
     ///   - logitBias: Modify the likelihood of specified tokens appearing in the completion. Maps tokens (specified by their token ID in the OpenAI Tokenizer—not English words) to an associated bias value from -100 to 100. Values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token.
     ///   - completionHandler: Returns an OpenAI Data Model
     public func sendChat(with messages: [ChatMessage],
-                         model: OpenAIModelType = .chat(.chatgpt),
+                         model: OpenAIModelType = .chat(.llama),
                          user: String? = nil,
                          temperature: Double? = 1,
                          topProbabilityMass: Double? = 0,
@@ -164,6 +170,12 @@ extension OpenAISwift {
                                     stream: false)
 
         let request = prepareRequest(endpoint, body: body)
+        
+        let requestBody = String(data: request.httpBody!, encoding: .utf8)
+        
+        print("request : \(request)")
+        print("request METHOD: \(request.httpMethod)")
+        print("request BODY: \(requestBody)")
         
         makeRequest(request: request) { result in
             switch result {
@@ -295,6 +307,8 @@ extension OpenAISwift {
             if let error = error {
                 completionHandler(.failure(error))
             } else if let data = data {
+                let receivedjson = String(decoding: data, as: UTF8.self)
+                print("json = \(receivedjson)")
                 completionHandler(.success(data))
             }
         }
@@ -372,7 +386,7 @@ extension OpenAISwift {
     @available(swift 5.5)
     @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
     public func sendChat(with messages: [ChatMessage],
-                         model: OpenAIModelType = .chat(.chatgpt),
+                         model: OpenAIModelType = .chat(.llama),
                          user: String? = nil,
                          temperature: Double? = 1,
                          topProbabilityMass: Double? = 0,

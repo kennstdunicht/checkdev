@@ -25,6 +25,10 @@ public struct ChatMessage: Codable, Identifiable {
     public let role: ChatRole?
     /// The content of the message.
     public let content: String?
+    
+    public var isUser: Bool {
+        role == .user
+    }
 
     /// Creates a new chat message with a given role and content.
     /// - Parameters:

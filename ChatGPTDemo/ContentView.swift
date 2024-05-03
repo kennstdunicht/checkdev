@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import OpenAISwift
 
 struct ContentView: View {
     @ObservedObject var viewModel: ChatViewModel
@@ -58,13 +59,13 @@ struct MessageRow: View {
         HStack {
             if message.isUser {
                 Spacer()
-                Text(message.message)
+                Text(message.content ?? "")
                     .padding()
                     .background(Color.blue)
                     .foregroundColor(Color.white)
                     .cornerRadius(10)
             } else {
-                Text(message.message)
+                Text(message.content ?? "")
                     .padding()
                     .background(Color.gray)
                     .foregroundColor(Color.white)
