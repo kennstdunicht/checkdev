@@ -26,6 +26,7 @@ final class ChatViewModel: ObservableObject {
         AgentsManager.shared.agents.append(AgentRole(name: "Dev", model: .chat(.llama), address: "localhost", sprites: DuckyImages.idleBounce(), systemPrompt: "You are a Developer", temperature: 0.6))
         AgentsManager.shared.agents.append(AgentRole(name: "Dokumenter", model: .chat(.llama), address: "localhost", sprites: DuckyImages.walk(), systemPrompt: "You will explain the code you get", temperature: 0.6))
         
+        messages.append(ChatMessage(role: .user, content: message)) // Append user message to chat history
         let scenario = Scenario(id: 0,
                                 text: message,
                                 phase: [Phase(id: 0,
@@ -47,6 +48,7 @@ final class ChatViewModel: ObservableObject {
                 for action in phase.action {
                     action.message = lastOutput
                     lastOutput = await processAction(action)
+
                 }
             }
         }
@@ -59,8 +61,6 @@ final class ChatViewModel: ObservableObject {
         }
         
         let actionMessage = ChatMessage(role: .user, content: message)
-        messages.append(actionMessage) // Append user message to chat history
-        
         let agentMessage = [ChatMessage(role: .system, content: action.agent.systemPrompt), actionMessage]
         
         let result = try? await openAI?.sendChat(with: messages, model: action.agent.model, temperature: action.agent.temperature)
@@ -73,7 +73,7 @@ final class ChatViewModel: ObservableObject {
     }
     
     private func assistantMessage(result: OllamaMessageResult) {
-        var assistantMessage: ChatMessage = .init(role: .assistant, content: "")
+        var assistantMessage: ChatMessage = .init(role: .assistant, content: result.message?.content ?? "")
         DispatchQueue.main.async { [weak self] in
             self?.messages.append(assistantMessage)
         }
