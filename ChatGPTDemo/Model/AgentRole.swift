@@ -6,5 +6,5 @@ struct AgentRole {
     let address: String
     let icon: String
     let systemPrompt: String
-    let temperature: Int
+    let temperature: Double
 }
