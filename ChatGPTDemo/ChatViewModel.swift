@@ -48,12 +48,15 @@ final class ChatViewModel: ObservableObject {
         var assistantMessage: ChatMessage = .init(role: .assistant, content: "")
         switch result {
         case .success(let result):
+            
             assistantMessage = ChatMessage(role: .assistant, content: result.message?.content ?? "")
         case .failure(let error):
             print("Some error has happened")
         }
 //        let message: ChatMessage = .init(role: .assistant, content: )
-        messages.append(assistantMessage)
+        DispatchQueue.main.async { [weak self] in
+            self?.messages.append(assistantMessage)
+        }
     }
 
     private func receiveBotMessage(_ message: String) {
