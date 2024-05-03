@@ -21,10 +21,9 @@
 		74DB3AD82AC06C2E007C6319 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DB3AD72AC06C2E007C6319 /* ChatViewModel.swift */; };
 		97A24BEA2BE5215400E716B8 /* DuckyImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A24BE92BE5215400E716B8 /* DuckyImages.swift */; };
 		97A24BED2BE5223C00E716B8 /* AnimatedSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A24BEC2BE5223C00E716B8 /* AnimatedSprite.swift */; };
-		C7E281872BE4FDD5001B528A /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = C7E281862BE4FDD5001B528A /* OpenAISwift */; };
-
 		C7E2818C2BE5166A001B528A /* AgentRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E2818B2BE5166A001B528A /* AgentRole.swift */; };
 		C7E2818E2BE51726001B528A /* AgentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E2818D2BE51726001B528A /* AgentsManager.swift */; };
+		ED139A1E2BE532B0000909F2 /* GirlImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED139A1D2BE532B0000909F2 /* GirlImages.swift */; };
 		ED6668F92BE51C3300DBA9E5 /* Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6668F62BE51C3300DBA9E5 /* Phase.swift */; };
 		ED6668FA2BE51C3300DBA9E5 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6668F72BE51C3300DBA9E5 /* Action.swift */; };
 		ED6668FB2BE51C3300DBA9E5 /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6668F82BE51C3300DBA9E5 /* Scenario.swift */; };
@@ -48,6 +47,7 @@
 		C7E281842BE4FDBE001B528A /* OpenAISwift-main */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = "OpenAISwift-main"; sourceTree = SOURCE_ROOT; };
 		C7E2818B2BE5166A001B528A /* AgentRole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentRole.swift; sourceTree = "<group>"; };
 		C7E2818D2BE51726001B528A /* AgentsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentsManager.swift; sourceTree = "<group>"; };
+		ED139A1D2BE532B0000909F2 /* GirlImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GirlImages.swift; sourceTree = "<group>"; };
 		ED6668F62BE51C3300DBA9E5 /* Phase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phase.swift; sourceTree = "<group>"; };
 		ED6668F72BE51C3300DBA9E5 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		ED6668F82BE51C3300DBA9E5 /* Scenario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
@@ -155,6 +155,7 @@
 		97A24BE82BE5214300E716B8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ED139A1D2BE532B0000909F2 /* GirlImages.swift */,
 				97A24BE92BE5215400E716B8 /* DuckyImages.swift */,
 			);
 			path = Resources;
@@ -278,6 +279,7 @@
 				0701C0E92BE51A2000FC74C7 /* ScenarioView.swift in Sources */,
 				74DB3AC72AC0538E007C6319 /* ChatGPTDemoApp.swift in Sources */,
 				0701C0E52BE519DB00FC74C7 /* ChatView.swift in Sources */,
+				ED139A1E2BE532B0000909F2 /* GirlImages.swift in Sources */,
 				0701C0F22BE5207D00FC74C7 /* View+Extensions.swift in Sources */,
 				0701C0DF2BE512D900FC74C7 /* TabViewModel.swift in Sources */,
 			);

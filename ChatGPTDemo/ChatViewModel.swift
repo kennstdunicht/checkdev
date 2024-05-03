@@ -63,7 +63,7 @@ final class ChatViewModel: ObservableObject {
         let actionMessage = ChatMessage(role: .user, content: message)
         let agentMessage = [ChatMessage(role: .system, content: action.agent.systemPrompt), actionMessage]
         
-        let result = try? await openAI?.sendChat(with: messages, model: action.agent.model, temperature: action.agent.temperature)
+        let result = try? await openAI?.sendChat(with: agentMessage, model: action.agent.model, temperature: action.agent.temperature)
         
         if let result {
             self.assistantMessage(result: result)
