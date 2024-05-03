@@ -7,9 +7,15 @@
 
 import Foundation
 
-struct Action {
+class Action {
     
     let id: Int
     let agent: AgentRole
-    let message: String?
+    var message: String?
+    
+    init(id: Int, agent: AgentRole, message: String? = nil) {
+        self.id = id
+        self.agent = agent
+        self.message = message
+    }
 }

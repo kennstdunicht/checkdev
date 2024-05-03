@@ -15,9 +15,7 @@ final class ChatViewModel: ObservableObject {
     
     var scenario: Scenario?
     
-    init() {
-        
-    }
+    init() {}
     
     func setupOpenAI() {
         let config: OpenAISwift.Config = .makeDefaultOpenAI(apiKey: "")
@@ -25,45 +23,57 @@ final class ChatViewModel: ObservableObject {
     }
     
     func sendUserMessage(_ message: String) {
-        
         AgentsManager.shared.agents.append(AgentRole(name: "Dev", model: .chat(.llama), address: "localhost", sprites: DuckyImages.idleBounce(), systemPrompt: "You are a Developer", temperature: 0.6))
         AgentsManager.shared.agents.append(AgentRole(name: "Dokumenter", model: .chat(.llama), address: "localhost", sprites: DuckyImages.walk(), systemPrompt: "You will explain the code you get", temperature: 0.6))
         
-        scenario = Scenario(id: 0,
-                            text: message,
-                            phase: [Phase(id: 0,
-                                          action: [Action(id: 0,
-                                                          agent: AgentsManager.shared.agents[0],
-                                                          message: message),
-                                                   Action(id: 0,
-                                                          agent: AgentsManager.shared.agents[1],
-                                                          message: nil)],
-                                          output: nil)])
+        let scenario = Scenario(id: 0,
+                                text: message,
+                                phase: [Phase(id: 0,
+                                              action: [Action(id: 0,
+                                                              agent: AgentsManager.shared.agents[0],
+                                                              message: message),
+                                                       Action(id: 0,
+                                                              agent: AgentsManager.shared.agents[1],
+                                                              message: nil)],
+                                              output: nil)])
         
-
+        processScenario(scenario)
     }
     
-    private func processAction(_ action: Action) {
-        
-        guard let message = action.message else { return }
-        let userMessage = ChatMessage(role: .user, content: message)
-        messages.append(userMessage) // Append user message to chat history
-        openAI?.sendChat(with: messages, completionHandler: { [weak self] result in
-            self?.assistantMessage(result: result)
-            
-        })
+    private func processScenario(_ scenario: Scenario) {
+        Task {
+            var lastOutput = scenario.text
+            for phase in scenario.phase {
+                for action in phase.action {
+                    action.message = lastOutput
+                    lastOutput = await processAction(action)
+                }
+            }
+        }
     }
     
-    private func assistantMessage(result: Result<OllamaMessageResult, OpenAIError>) {
-        var assistantMessage: ChatMessage = .init(role: .assistant, content: "")
-        switch result {
-        case .success(let result):
-            
-            assistantMessage = ChatMessage(role: .assistant, content: result.message?.content ?? "")
-        case .failure(let error):
-            print("Some error has happened")
+    @MainActor
+    private func processAction(_ action: Action) async -> String? {
+        guard let message = action.message else {
+            return nil
         }
         
+        let actionMessage = ChatMessage(role: .user, content: message)
+        messages.append(actionMessage) // Append user message to chat history
+        
+        let agentMessage = [ChatMessage(role: .system, content: action.agent.systemPrompt), actionMessage]
+        
+        let result = try? await openAI?.sendChat(with: messages, model: action.agent.model, temperature: action.agent.temperature)
+        
+        if let result {
+            self.assistantMessage(result: result)
+        }
+        
+        return result?.message?.content
+    }
+    
+    private func assistantMessage(result: OllamaMessageResult) {
+        var assistantMessage: ChatMessage = .init(role: .assistant, content: "")
         DispatchQueue.main.async { [weak self] in
             self?.messages.append(assistantMessage)
         }
