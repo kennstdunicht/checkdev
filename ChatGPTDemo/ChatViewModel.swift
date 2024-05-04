@@ -11,6 +11,8 @@ import OpenAISwift
 final class ChatViewModel: ObservableObject {
     @Published var messages: [ChatMessage] = [] // Published property for chat messages
     
+    var chatHistory: [ChatMessage] = []
+    
     @Published var counter = 0
     @Published var percentage = 0.0
     @Published var isLoading = false
@@ -29,7 +31,10 @@ final class ChatViewModel: ObservableObject {
     }
     
     func sendUserMessage(_ message: String) {        
-        messages.append(ChatMessage(role: .user, content: message)) // Append user message to chat history
+        let userMessage = ChatMessage(role: .user, content: message)
+        
+        messages.append(userMessage) // Append user message to chat history
+        
         let scenario = Scenario(id: 0,
                                 text: message,
                                 phase: [Phase(id: 0,
@@ -85,9 +90,14 @@ final class ChatViewModel: ObservableObject {
             return nil
         }
         
-        let actionMessage = ChatMessage(role: .user, content: message)
-        let agentMessage = [ChatMessage(role: .system, content: action.agent.systemPrompt), actionMessage]
         
+        let actionMessage = ChatMessage(role: .user, content: message)
+        
+        
+        chatHistory.append(contentsOf: [actionMessage])
+        
+        var agentMessage = [ChatMessage(role: .system, content: action.agent.systemPrompt)]
+        agentMessage.append(contentsOf: chatHistory)
         let result = try? await openAI?.sendChat(with: agentMessage, model: action.agent.model, temperature: action.agent.temperature)
         
         if let result {
