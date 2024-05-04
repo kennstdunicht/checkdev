@@ -22,6 +22,7 @@ struct ChatView: View {
                 height: 32,
                 sprites: viewModel.sprites
             )
+            .frame(height: 32)
             MessagesListView(messages: viewModel.messages) // Display chat messages
             HStack {
                 TextField("Enter your message", text: $newMessage) // Input field
