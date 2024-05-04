@@ -10,6 +10,6 @@ import Foundation
 struct Scenario {
     
     let id: Int
-    let text: String?
-    let phase: [Phase]
+    var text: String?
+    var phase: [Phase]
 }

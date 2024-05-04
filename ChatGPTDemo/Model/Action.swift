@@ -7,14 +7,13 @@
 
 import Foundation
 
-class Action {
+class Action: Identifiable {
     
-    let id: Int
+    let id = UUID()
     let agent: AgentRole
     var message: String?
     
-    init(id: Int, agent: AgentRole, message: String? = nil) {
-        self.id = id
+    init(agent: AgentRole, message: String? = nil) {
         self.agent = agent
         self.message = message
     }

@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Phase {
+struct Phase: Identifiable {
     
-    let id: Int
+    let id = UUID()
     let action: [Action]
     let output: String?
 }

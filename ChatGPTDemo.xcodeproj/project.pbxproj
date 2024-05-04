@@ -26,6 +26,8 @@
 		C7E2818C2BE5166A001B528A /* AgentRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E2818B2BE5166A001B528A /* AgentRole.swift */; };
 		C7E2818E2BE51726001B528A /* AgentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E2818D2BE51726001B528A /* AgentsManager.swift */; };
 		ED139A1E2BE532B0000909F2 /* GirlImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED139A1D2BE532B0000909F2 /* GirlImages.swift */; };
+		ED139A222BE63D43000909F2 /* ScenarioViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED139A212BE63D43000909F2 /* ScenarioViewViewModel.swift */; };
+		ED139A242BE63E08000909F2 /* ScenarioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED139A232BE63E08000909F2 /* ScenarioManager.swift */; };
 		ED6668F92BE51C3300DBA9E5 /* Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6668F62BE51C3300DBA9E5 /* Phase.swift */; };
 		ED6668FA2BE51C3300DBA9E5 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6668F72BE51C3300DBA9E5 /* Action.swift */; };
 		ED6668FB2BE51C3300DBA9E5 /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6668F82BE51C3300DBA9E5 /* Scenario.swift */; };
@@ -52,6 +54,8 @@
 		C7E2818B2BE5166A001B528A /* AgentRole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentRole.swift; sourceTree = "<group>"; };
 		C7E2818D2BE51726001B528A /* AgentsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentsManager.swift; sourceTree = "<group>"; };
 		ED139A1D2BE532B0000909F2 /* GirlImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GirlImages.swift; sourceTree = "<group>"; };
+		ED139A212BE63D43000909F2 /* ScenarioViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioViewViewModel.swift; sourceTree = "<group>"; };
+		ED139A232BE63E08000909F2 /* ScenarioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioManager.swift; sourceTree = "<group>"; };
 		ED6668F62BE51C3300DBA9E5 /* Phase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phase.swift; sourceTree = "<group>"; };
 		ED6668F72BE51C3300DBA9E5 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		ED6668F82BE51C3300DBA9E5 /* Scenario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				0701C0E82BE51A2000FC74C7 /* ScenarioView.swift */,
+				ED139A212BE63D43000909F2 /* ScenarioViewViewModel.swift */,
 			);
 			path = ScenarioView;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 				ED6668F82BE51C3300DBA9E5 /* Scenario.swift */,
 				C7E2818B2BE5166A001B528A /* AgentRole.swift */,
 				C7E2818D2BE51726001B528A /* AgentsManager.swift */,
+				ED139A232BE63E08000909F2 /* ScenarioManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,8 +289,10 @@
 				C7E2818E2BE51726001B528A /* AgentsManager.swift in Sources */,
 				74DB3AC72AC0538E007C6319 /* ChatGPTDemoApp.swift in Sources */,
 				97A24BEA2BE5215400E716B8 /* DuckyImages.swift in Sources */,
+				ED139A242BE63E08000909F2 /* ScenarioManager.swift in Sources */,
 				0701C0F42BE52BF300FC74C7 /* RoleViewModel.swift in Sources */,
 				ED6668FA2BE51C3300DBA9E5 /* Action.swift in Sources */,
+				ED139A222BE63D43000909F2 /* ScenarioViewViewModel.swift in Sources */,
 				ED6668FB2BE51C3300DBA9E5 /* Scenario.swift in Sources */,
 				97A24BED2BE5223C00E716B8 /* AnimatedSprite.swift in Sources */,
 				C7E2818C2BE5166A001B528A /* AgentRole.swift in Sources */,

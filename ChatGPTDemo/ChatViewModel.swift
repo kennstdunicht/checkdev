@@ -21,7 +21,7 @@ final class ChatViewModel: ObservableObject {
     
     private var openAI: OpenAISwift?
     
-    var scenario: Scenario?
+    var scenarioManager = ScenarioManager.shared
     
     init() {}
     
@@ -35,21 +35,12 @@ final class ChatViewModel: ObservableObject {
         
         messages.append(userMessage) // Append user message to chat history
         
-        let scenario = Scenario(id: 0,
-                                text: message,
-                                phase: [Phase(id: 0,
-                                              action: createActionsList(userMessage: message),
-                                              output: nil)])
         
-        processScenario(scenario)
-    }
-    
-    private func createActionsList(userMessage: String) -> [Action] {
-        let actions = AgentsManager.shared.agents.map { agent in
-            Action(id: 0, agent: agent, message: nil)
+        if var scenario = scenarioManager.scenario {
+            scenario.text = message
+            scenario.phase.first?.action.first?.message = message
+            processScenario(scenario)
         }
-        actions.first?.message = userMessage
-        return actions
     }
     
     private func processScenario(_ scenario: Scenario) {
