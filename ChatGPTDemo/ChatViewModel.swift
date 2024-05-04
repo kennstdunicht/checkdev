@@ -90,14 +90,9 @@ final class ChatViewModel: ObservableObject {
             return nil
         }
         
+        let actionMessage = ChatMessage(role: .user, content: mergeMessages())
         
-        let actionMessage = ChatMessage(role: .user, content: message)
-        
-        
-        chatHistory.append(contentsOf: [actionMessage])
-        
-        var agentMessage = [ChatMessage(role: .system, content: action.agent.systemPrompt)]
-        agentMessage.append(contentsOf: chatHistory)
+        var agentMessage = [ChatMessage(role: .system, content: action.agent.systemPrompt), actionMessage]
         let result = try? await openAI?.sendChat(with: agentMessage, model: action.agent.model, temperature: action.agent.temperature)
         
         if let result {
@@ -105,6 +100,18 @@ final class ChatViewModel: ObservableObject {
         }
         
         return result?.message?.content
+    }
+    
+    private func mergeMessages() -> String {
+        var result: String = ""
+        
+        for chatMessage in messages {
+            if let content = chatMessage.content {
+                result.append(content)
+                result.append("\n")
+            }
+        }
+        return result
     }
     
     private func assistantMessage(botName: String, result: OllamaMessageResult) {
