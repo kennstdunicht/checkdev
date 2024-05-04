@@ -43,7 +43,6 @@ struct BottomSheetView: View {
                            
                             Button {
                                 didTapButton(.init(name: roleName, model: .chat(.llama), address: "localhost", sprites: DuckyImages.idleBounce(), systemPrompt: "You are a developer", temperature: temperature))
-//                                AgentRole(name: "Dev", model: .chat(.llama), address: "localhost", sprites: DuckyImages.idleBounce(), systemPrompt: "You are a Developer", temperature: 0.6)
                                 isShowing = false
                             } label: {
                                 HStack {

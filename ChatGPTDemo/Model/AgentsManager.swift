@@ -8,5 +8,11 @@ class AgentsManager {
     
     private init() {
         /// use shared instance
+        
     }
+    
+    func addAgent(agent: AgentRole) {
+        agents.append(agent)
+    }
+    
 }
