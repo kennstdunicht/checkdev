@@ -1,6 +1,6 @@
 import Foundation
 
-class AgentsManager {
+class AgentsManager: ObservableObject {
     
     static let shared = AgentsManager()
     
@@ -21,4 +21,7 @@ class AgentsManager {
         agents.append(agent)
     }
     
+    func deleteItem(at index: Int) {
+        agents.remove(at: index)
+    }
 }
