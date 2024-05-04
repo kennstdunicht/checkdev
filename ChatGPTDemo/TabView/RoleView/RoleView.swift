@@ -13,17 +13,24 @@ struct RoleView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 20) {
-                ForEach(0 ..< viewModel.agents.count, id: \.self) { index in
-                    createAgent(with: index)
-                }
-                Button {
-                    viewModel.isShowingBottomSheet = true
-                } label: {
-                    addRoleRow
+                NavigationStack {
+                    List {
+                        ForEach(0 ..< viewModel.agents.count, id: \.self) { index in
+                            createAgent(with: index)
+                        }
+                        .onDelete(perform: viewModel.deleteItem)
+                    }
+                    .navigationTitle("Role")
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button("Add Role") {
+                                viewModel.isShowingBottomSheet = true
+                            }
+                        }
+                    }
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding(.horizontal, 32)
             
             BottomSheetView(isShowing: $viewModel.isShowingBottomSheet) { role in
                 viewModel.addRole(role: role)

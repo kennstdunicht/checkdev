@@ -9,7 +9,9 @@ import SwiftUI
 
 final class RoleViewModel: ObservableObject {
     
-    var agents: [AgentRole] { AgentsManager.shared.agents }
+    var agents: [AgentRole] { dataManager.agents }
+    
+    @ObservedObject var dataManager = AgentsManager.shared
     
     init() {}
     
@@ -24,5 +26,11 @@ final class RoleViewModel: ObservableObject {
     
     func addRole(role: AgentRole) {
         AgentsManager.shared.addAgent(agent: role)
+    }
+    
+    func deleteItem(at offsets: IndexSet) {
+        for index in offsets {
+            dataManager.deleteItem(at: index)
+        }
     }
 }
