@@ -4,7 +4,7 @@ class AgentsManager: ObservableObject {
     
     static let shared = AgentsManager()
     
-    var agents: [AgentRole] = []
+    @Published var agents: [AgentRole] = []
     
     private init() {
         createDefaults()
@@ -20,6 +20,13 @@ class AgentsManager: ObservableObject {
     
     func addAgent(agent: AgentRole) {
         agents.append(agent)
+    }
+    
+    func editAgent(oldAgentIndex: Int, newAgent: AgentRole) {
+        let oldAgent = agents[oldAgentIndex]
+        guard let index = agents.firstIndex(where: { $0 == oldAgent }) else { return }
+       
+        agents[index] = newAgent
     }
     
     func deleteItem(at index: Int) {

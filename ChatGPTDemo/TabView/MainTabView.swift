@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @ObservedObject var viewModel = TabViewModel()
     @State var selectedTab: TabbedItems = .chat
     
     @State private var selectedIndex: Int = 0

@@ -11,9 +11,9 @@ import SwiftUI
 struct BottomSheetView: View {
     
     @Binding var isShowing: Bool
-    @State var roleName: String = ""
-    @State var systemPrompt: String = ""
-    @State private var temperature: Double = 0
+    
+    @ObservedObject var vm: BottomSheetViewModel
+    
     var didTapButton: (AgentRole) -> Void
     
     var body: some View {
@@ -32,19 +32,19 @@ struct BottomSheetView: View {
                 
                 VStack {
                     Form {
-                        TextField("Role Name", text: $roleName)
-                        TextField("System Prompt", text: $systemPrompt)
+                        TextField("Role Name", text: $vm.roleName)
+                        TextField("System Prompt", text: $vm.systemPrompt)
                         VStack(alignment: .leading, spacing: 20) {
                         
                             Text("Temperature")
                                 .font(.headline)
                             HStack {
-                                Slider(value: $temperature, in: 0...1)
-                                Text(String(format: "%.2f", temperature))
+                                Slider(value: $vm.temperature, in: 0...1)
+                                Text(String(format: "%.2f", vm.temperature))
                             }
                             
                             Button {
-                                didTapButton(.init(name: roleName, model: .chat(.llama), address: "localhost", sprites: DuckyImages.idleBounce(), systemPrompt: systemPrompt, temperature: temperature))
+                                didTapButton(.init(name: vm.roleName, model: .chat(.llama), address: "localhost", sprites: DuckyImages.idleBounce(), systemPrompt: vm.systemPrompt, temperature: vm.temperature))
                                 isShowing = false
                             } label: {
                                 HStack {

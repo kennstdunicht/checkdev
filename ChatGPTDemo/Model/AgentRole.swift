@@ -10,3 +10,10 @@ struct AgentRole: Identifiable {
     let systemPrompt: String
     let temperature: Double
 }
+
+extension AgentRole: Equatable {
+    static func == (lhs: AgentRole, rhs: AgentRole) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
+
