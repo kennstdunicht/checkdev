@@ -28,11 +28,7 @@ final class ChatViewModel: ObservableObject {
         openAI = OpenAISwift(config: config) // Initialize OpenAI
     }
     
-    func sendUserMessage(_ message: String) {
-        AgentsManager.shared.agents = []
-        AgentsManager.shared.agents.append(AgentRole(name: "Dev", model: .chat(.llama), address: "localhost", sprites: DuckyImages.idleBounce(), systemPrompt: "You are a Swift Developer. You will only code. You will not make any explanations.", temperature: 0.6))
-        AgentsManager.shared.agents.append(AgentRole(name: "Documenter", model: .chat(.llama), address: "localhost", sprites: GirlImages.idle(), systemPrompt: "You will explain the code you get. Explain it so that a child can understand.", temperature: 0.6))
-        
+    func sendUserMessage(_ message: String) {        
         messages.append(ChatMessage(role: .user, content: message)) // Append user message to chat history
         let scenario = Scenario(id: 0,
                                 text: message,
