@@ -37,15 +37,18 @@ final class ChatViewModel: ObservableObject {
         let scenario = Scenario(id: 0,
                                 text: message,
                                 phase: [Phase(id: 0,
-                                              action: [Action(id: 0,
-                                                              agent: AgentsManager.shared.agents[0],
-                                                              message: message),
-                                                       Action(id: 0,
-                                                              agent: AgentsManager.shared.agents[1],
-                                                              message: nil)],
+                                              action: createActionsList(userMessage: message),
                                               output: nil)])
         
         processScenario(scenario)
+    }
+    
+    private func createActionsList(userMessage: String) -> [Action] {
+        let actions = AgentsManager.shared.agents.map { agent in
+            Action(id: 0, agent: agent, message: nil)
+        }
+        actions.first?.message = userMessage
+        return actions
     }
     
     private func processScenario(_ scenario: Scenario) {
