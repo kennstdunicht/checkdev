@@ -9,22 +9,20 @@ import SwiftUI
 
 final class RoleViewModel: ObservableObject {
     
-    @Published var agents: [AgentRole] = []
+    var agents: [AgentRole] { AgentsManager.shared.agents }
     
-    init() {
-        setupDefaultAgents()
-    }
+    init() {}
     
     @Published var isShowingBottomSheet: Bool = false
     
-    private func setupDefaultAgents() {
-        agents = [
-            AgentRole(name: "Dev", model: .chat(.llama), address: "localhost", sprites: DuckyImages.idleBounce(), systemPrompt: "You are a Developer", temperature: 0.6),
-            AgentRole(name: "Dokumenter", model: .chat(.llama), address: "localhost", sprites: GirlImages.idle(), systemPrompt: "You will explain the code you get", temperature: 0.6)
-        ]
-    }
+//    private func setupDefaultAgents() {
+//        agents = [
+//            AgentRole(name: "Dev", model: .chat(.llama), address: "localhost", sprites: DuckyImages.idleBounce(), systemPrompt: "You are a Developer", temperature: 0.6),
+//            AgentRole(name: "Dokumenter", model: .chat(.llama), address: "localhost", sprites: GirlImages.idle(), systemPrompt: "You will explain the code you get", temperature: 0.6)
+//        ]
+//    }
     
     func addRole(role: AgentRole) {
-        agents.append(role)
+        AgentsManager.shared.addAgent(agent: role)
     }
 }

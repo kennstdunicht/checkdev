@@ -13,7 +13,7 @@ struct RoleView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 20) {
-                ForEach(0 ..< viewModel.agents.count) { index in
+                ForEach(0 ..< viewModel.agents.count, id: \.self) { index in
                     createAgent(with: index)
                 }
                 Button {

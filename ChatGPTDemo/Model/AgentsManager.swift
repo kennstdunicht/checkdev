@@ -16,4 +16,9 @@ class AgentsManager {
             AgentRole(name: "Documenter", model: .chat(.llama), address: "localhost", sprites: GirlImages.idle(), systemPrompt: "You will explain the code you get. Explain it so that a child can understand.", temperature: 1.0)
         ]
     }
+    
+    func addAgent(agent: AgentRole) {
+        agents.append(agent)
+    }
+    
 }
